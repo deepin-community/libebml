@@ -35,7 +35,7 @@
 
 #include "ebml/EbmlDate.h"
 
-START_LIBEBML_NAMESPACE
+namespace libebml {
 
 const uint64 EbmlDate::UnixEpochDelay = 978307200; // 2001/01/01 00:00:00 UTC
 
@@ -88,4 +88,4 @@ bool EbmlDate::IsSmallerThan(const EbmlElement *Cmp) const
   return false;
 }
 
-END_LIBEBML_NAMESPACE
+} // namespace libebml
