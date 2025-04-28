@@ -10,7 +10,7 @@ Build-Depends:
  debhelper-compat (= 13),
  cmake,
  pkg-config
-Standards-Version: 4.6.0
+Standards-Version: 4.6.2
 Rules-Requires-Root: no
 Homepage: https://dl.matroska.org/downloads/libebml/
 Vcs-Git: https://salsa.debian.org/multimedia-team/libebml.git

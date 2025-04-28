@@ -36,12 +36,13 @@
 */
 
 #include <cassert>
+#include <limits>
 
 #include "ebml/EbmlUnicodeString.h"
 
 #include "lib/utf8-cpp/source/utf8/checked.h"
 
-START_LIBEBML_NAMESPACE
+namespace libebml {
 
 // ===================== UTFstring class ===================
 
@@ -306,7 +307,7 @@ filepos_t EbmlUnicodeString::ReadData(IOCallback & input, ScopeMode ReadFully)
     return GetSize();
 
   if (GetSize() == 0) {
-    Value = UTFstring::value_type(0);
+    Value = static_cast<UTFstring::value_type>(0);
     SetValueIsSet();
   } else {
     auto Buffer = (GetSize() + 1 < std::numeric_limits<std::size_t>::max()) ? new (std::nothrow) char[GetSize()+1] : nullptr;
@@ -328,4 +329,4 @@ filepos_t EbmlUnicodeString::ReadData(IOCallback & input, ScopeMode ReadFully)
   return GetSize();
 }
 
-END_LIBEBML_NAMESPACE
+} // namespace libebml

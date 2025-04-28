@@ -38,7 +38,7 @@
 
 #include "ebml/EbmlUInteger.h"
 
-START_LIBEBML_NAMESPACE
+namespace libebml {
 
 EbmlUInteger::EbmlUInteger()
   :EbmlElement(DEFAULT_UINT_SIZE, false)
@@ -63,9 +63,9 @@ uint64 EbmlUInteger::DefaultVal() const
   return DefaultValue;
 }
 
-EbmlUInteger::operator uint8()  const {return uint8(Value); }
-EbmlUInteger::operator uint16() const {return uint16(Value);}
-EbmlUInteger::operator uint32() const {return uint32(Value);}
+EbmlUInteger::operator uint8()  const {return static_cast<uint8>(Value); }
+EbmlUInteger::operator uint16() const {return static_cast<uint16>(Value);}
+EbmlUInteger::operator uint32() const {return static_cast<uint32>(Value);}
 EbmlUInteger::operator uint64() const {return Value;}
 
 uint64 EbmlUInteger::GetValue() const {return Value;}
@@ -157,4 +157,4 @@ bool EbmlUInteger::IsSmallerThan(const EbmlElement *Cmp) const
   return false;
 }
 
-END_LIBEBML_NAMESPACE
+} // namespace libebml
